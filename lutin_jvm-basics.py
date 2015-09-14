@@ -16,8 +16,11 @@ def create(target):
 		'jvm-basics/debug.cpp',
 		'jvm-basics/jvm-basics.cpp'
 		])
+	myModule.add_header_file([
+		'jvm-basics/jvm-basics.h'
+		])
 	myModule.compile_version_XX(2011)
-	myModule.add_export_path(tools.get_current_path(__file__))
+	myModule.add_path(tools.get_current_path(__file__))
 	return myModule
 
 
