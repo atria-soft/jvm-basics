@@ -7,20 +7,20 @@ def get_desc():
 
 def create(target):
 	# module name is 'edn' and type binary.
-	myModule = module.Module(__file__, 'jvm-basics', 'LIBRARY')
-	myModule.add_module_depend(['etk'])
+	my_module = module.Module(__file__, 'jvm-basics', 'LIBRARY')
+	my_module.add_module_depend(['etk'])
 	# add extra compilation flags :
-	myModule.add_extra_compile_flags()
+	my_module.add_extra_compile_flags()
 	# add the file to compile:
-	myModule.add_src_file([
+	my_module.add_src_file([
 		'jvm-basics/debug.cpp',
 		'jvm-basics/jvm-basics.cpp'
 		])
-	myModule.add_header_file([
+	my_module.add_header_file([
 		'jvm-basics/jvm-basics.h'
 		])
-	myModule.compile_version_XX(2011)
-	myModule.add_path(tools.get_current_path(__file__))
-	return myModule
+	my_module.compile_version_XX(2011)
+	my_module.add_path(tools.get_current_path(__file__))
+	return my_module
 
 
