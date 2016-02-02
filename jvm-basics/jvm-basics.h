@@ -3,9 +3,7 @@
  * @copyright 2015, Edouard DUPIN, all right reserved
  * @license APACHE v2.0 (see license file)
  */
-
-#ifndef __JVM_BASICS_H__
-#define __JVM_BASICS_H__
+#pragma once
 
 namespace jvm_basics {
 	JavaVM*& getJavaVM();
@@ -13,4 +11,3 @@ namespace jvm_basics {
 	void checkExceptionJavaVM(JNIEnv* _env);
 }
 
-#endif

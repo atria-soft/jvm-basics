@@ -3,9 +3,7 @@
  * @copyright 2015, Edouard DUPIN, all right reserved
  * @license APACHE v2.0 (see license file)
  */
-
-#ifndef __JVM_BASICS_DEBUG_H__
-#define __JVM_BASICS_DEBUG_H__
+#pragma once
 
 #include <etk/log.h>
 
@@ -37,6 +35,4 @@ namespace jvm_basics {
 			assert(!#cond); \
 		} \
 	} while (0)
-
-#endif
 
