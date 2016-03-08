@@ -7,6 +7,6 @@
 #include <jvm-basics/debug.h>
 
 int32_t jvm_basics::getLogId() {
-	static int32_t g_val = etk::log::registerInstance("jvm-basics");
+	static int32_t g_val = elog::registerInstance("jvm-basics");
 	return g_val;
 }

@@ -5,12 +5,12 @@
  */
 #pragma once
 
-#include <etk/log.h>
+#include <elog/log.h>
 
 namespace jvm_basics {
 	int32_t getLogId();
 }
-#define JVMB_BASE(info,data) TK_LOG_BASE(jvm_basics::getLogId(),info,data)
+#define JVMB_BASE(info,data) ELOG_BASE(jvm_basics::getLogId(),info,data)
 
 #define JVMB_PRINT(data)         JVMB_BASE(-1, data)
 #define JVMB_CRITICAL(data)      JVMB_BASE(1, data)
