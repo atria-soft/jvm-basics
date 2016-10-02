@@ -7,8 +7,8 @@
 #include <jni.h>
 #include <pthread.h>
 #include <mutex>
-#include <jvm-basics/debug.h>
-#include <jvm-basics/jvm-basics.h>
+#include <jvm-basics/debug.hpp>
+#include <jvm-basics/jvm-basics.hpp>
 
 // jni doc : /usr/lib/jvm/java-1.6.0-openjdk/include
 

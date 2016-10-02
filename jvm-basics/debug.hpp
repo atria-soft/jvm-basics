@@ -5,7 +5,7 @@
  */
 #pragma once
 
-#include <elog/log.h>
+#include <elog/log.hpp>
 
 namespace jvm_basics {
 	int32_t getLogId();

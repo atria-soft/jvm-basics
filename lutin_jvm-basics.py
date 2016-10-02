@@ -34,7 +34,7 @@ def create(target, module_name):
 		'jvm-basics/jvm-basics.cpp'
 		])
 	my_module.add_header_file([
-		'jvm-basics/jvm-basics.h'
+		'jvm-basics/jvm-basics.hpp'
 		])
 	my_module.compile_version("c++", 2011)
 	my_module.add_path(tools.get_current_path(__file__))
