@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import lutin.module as module
+import lutin.debug as debug
 import lutin.tools as tools
 import os
 
@@ -25,19 +25,18 @@ def get_maintainer():
 def get_version():
 	return [1,0]
 
-def create(target, module_name):
-	my_module = module.Module(__file__, module_name, get_type())
+def configure(target, my_module):
 	my_module.add_depend(['etk'])
 	my_module.add_extra_flags()
 	my_module.add_src_file([
-		'jvm-basics/debug.cpp',
-		'jvm-basics/jvm-basics.cpp'
-		])
+	    'jvm-basics/debug.cpp',
+	    'jvm-basics/jvm-basics.cpp'
+	    ])
 	my_module.add_header_file([
-		'jvm-basics/jvm-basics.hpp'
-		])
+	    'jvm-basics/jvm-basics.hpp'
+	    ])
 	my_module.compile_version("c++", 2011)
-	my_module.add_path(tools.get_current_path(__file__))
-	return my_module
+	my_module.add_path(".")
+	return True
 
 
