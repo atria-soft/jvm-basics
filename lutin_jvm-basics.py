@@ -23,7 +23,7 @@ def get_maintainer():
 	return ["Mr DUPIN Edouard <yui.heero@gmail.com>"]
 
 def get_version():
-	return [1,2,0]
+	return [1,2,0,"dev"]
 
 def configure(target, my_module):
 	my_module.add_depend(['etk'])
