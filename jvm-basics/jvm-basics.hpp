@@ -7,7 +7,7 @@
 
 namespace jvm_basics {
 	JavaVM*& getJavaVM();
-	std::mutex& getMutexJavaVM();
+	ethread::Mutex& getMutexJavaVM();
 	void checkExceptionJavaVM(JNIEnv* _env);
 }
 

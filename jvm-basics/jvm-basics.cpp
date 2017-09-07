@@ -6,7 +6,7 @@
 
 #include <jni.h>
 #include <pthread.h>
-#include <mutex>
+#include <ethread/Mutex.hpp>
 #include <jvm-basics/debug.hpp>
 #include <jvm-basics/jvm-basics.hpp>
 
@@ -17,8 +17,8 @@ JavaVM*& jvm_basics::getJavaVM() {
 	static JavaVM* g_JavaVM=nullptr; // global acces on the unique JVM !!!
 	return g_JavaVM;
 }
-std::mutex& jvm_basics::getMutexJavaVM() {
-	static std::mutex g_jvmMutex;
+ethread::Mutex& jvm_basics::getMutexJavaVM() {
+	static ethread::Mutex g_jvmMutex;
 	return g_jvmMutex;
 }
 
@@ -34,14 +34,14 @@ extern "C" {
 	// JNI onLoad
 	JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* _jvm, void* _reserved) {
 		// get the java virtual machine handle ...
-		std::unique_lock<std::mutex> lock(jvm_basics::getMutexJavaVM());
+		std::unique_lock<ethread::Mutex> lock(jvm_basics::getMutexJavaVM());
 		jvm_basics::getJavaVM() = _jvm;
 		JVMB_INFO("JNI-> load the jvm ..." );
 		return JNI_VERSION_1_6;
 	}
 	// JNI onUnLoad
 	JNIEXPORT void JNICALL JNI_OnUnload(JavaVM* _vm, void *_reserved) {
-		std::unique_lock<std::mutex> lock(jvm_basics::getMutexJavaVM());
+		std::unique_lock<ethread::Mutex> lock(jvm_basics::getMutexJavaVM());
 		jvm_basics::getJavaVM() = nullptr;
 		JVMB_INFO("JNI-> Un-load the jvm ..." );
 	}
