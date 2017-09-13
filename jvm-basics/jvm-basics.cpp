@@ -34,14 +34,14 @@ extern "C" {
 	// JNI onLoad
 	JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* _jvm, void* _reserved) {
 		// get the java virtual machine handle ...
-		std::unique_lock<ethread::Mutex> lock(jvm_basics::getMutexJavaVM());
+		ethread::UniqueLock lock(jvm_basics::getMutexJavaVM());
 		jvm_basics::getJavaVM() = _jvm;
 		JVMB_INFO("JNI-> load the jvm ..." );
 		return JNI_VERSION_1_6;
 	}
 	// JNI onUnLoad
 	JNIEXPORT void JNICALL JNI_OnUnload(JavaVM* _vm, void *_reserved) {
-		std::unique_lock<ethread::Mutex> lock(jvm_basics::getMutexJavaVM());
+		ethread::UniqueLock lock(jvm_basics::getMutexJavaVM());
 		jvm_basics::getJavaVM() = nullptr;
 		JVMB_INFO("JNI-> Un-load the jvm ..." );
 	}
