@@ -14,7 +14,7 @@
 
 // Global JVM (can only have 1)
 JavaVM*& jvm_basics::getJavaVM() {
-	static JavaVM* g_JavaVM=nullptr; // global acces on the unique JVM !!!
+	static JavaVM* g_JavaVM=null; // global acces on the unique JVM !!!
 	return g_JavaVM;
 }
 ethread::Mutex& jvm_basics::getMutexJavaVM() {
@@ -42,7 +42,7 @@ extern "C" {
 	// JNI onUnLoad
 	JNIEXPORT void JNICALL JNI_OnUnload(JavaVM* _vm, void *_reserved) {
 		ethread::UniqueLock lock(jvm_basics::getMutexJavaVM());
-		jvm_basics::getJavaVM() = nullptr;
+		jvm_basics::getJavaVM() = null;
 		JVMB_INFO("JNI-> Un-load the jvm ..." );
 	}
 }
